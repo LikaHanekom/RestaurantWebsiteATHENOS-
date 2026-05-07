@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT IMAGE */
+.image-section {
+    flex: 1.2;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('assets/The Best Greek Food We Ate in Rhodes & AthensReservation.jpeg')
+        center/cover no-repeat;
+}
+
+/* RIGHT PANEL */
+.reservation-panel {
+    flex: 0.8;
+    background: linear-gradient(135deg, #0b3c49, #062d36);
+    color: #fff;
+    padding: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* TITLE */
+.reservation-panel h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color:#fef8f0 ;
+    font-family: 'Playfair Display', serif;
+}
+
+/* FORM */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-grid input {
+    background: #3e646e;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 20px;
+    background: #0b3c49;
+    color: #fef8f0;
+    border: none;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+}
+
+/* CLOSE NAV */
+.close-btn:hover {
+    opacity: 0.7;
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+.switch-text {
+    margin-top: 15px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.switch-text span {
+    cursor: pointer;
+    text-decoration: underline;
+}

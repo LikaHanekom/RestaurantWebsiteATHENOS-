@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athenos</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
+</head>
+<body>
+     <section class="container">
+
+        <section class="image-section"></section>
+
+        <section class="reservation-panel">
+
+            <div class="close-btn">×</div>
+
+
+            <h1 id="formTitle">LOGIN</h1>
+
+            <form id="loginForm" class="form active">
+                <div class="form-grid">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                </div>
+
+                <button type="submit">LOGIN ></button>
+
+                <p class="switch-text">
+                    Don't have an account?
+                    <span id="showRegister">Register</span>
+                </p>
+            </form>
+
+            <form id="registerForm" class="form">
+                <div class="form-grid">
+                    <input type="text" id="reg_name" placeholder="First Name">
+                    <input type="text" id="reg_last_name" placeholder="Last Name">
+                    <input type="email" id="reg_email" placeholder="Email">
+                    <input type="password" id="reg_password" placeholder="Password">
+                    <input type="password" id="reg_confirm_pass" placeholder="Confirm Password">
+                </div>
+
+                <button type="submit">REGISTER ></button>
+
+                <p id="registerMessage"></p>
+
+                <p class="switch-text">
+                    Already have an account?
+                    <span id="showLogin">Login</span>
+                </p>
+            </form>
+
+        </section>
+    </section>
+</body>
+</html>

@@ -1,0 +1,376 @@
+html, body{
+height: 100%;
+margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: #0c4a57;
+  backdrop-filter: blur(6px); 
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #EEE0D7;
+}
+
+.logo-link {
+    text-decoration: none;  
+    display: inline-block;  
+    color: inherit;         
+}
+
+.logo span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #EEE0D7;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #EEE0D7;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #1b1e1f;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+/*main*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.locations-page{
+  background:#0c4a57;
+  padding: 2%;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+    margin-bottom: 60px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-tab {
+    background: none;
+    border: none;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    color:#EEE0D7;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    padding: 5px 0;
+    position: relative;
+}
+
+.filter-tab:hover {
+    color: #1a1a1a;
+}
+
+.filter-tab.active {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.filter-tab.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -16px;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: #c49a6c;
+    border-radius: 50%;
+}
+
+/* Provinces Row - Horizontal layout */
+.provinces-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: flex-start;
+    margin-bottom: 60px;
+}
+
+/* Each province column */
+.province-column {
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Province Title */
+.province-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    color: #c49a6c;
+    text-transform: uppercase;
+    border-left: 3px solid #c49a6c;
+    padding-left: 12px;
+}
+
+/* Location List - Vertical list */
+.location-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Location Items */
+.location-item {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: #EEE0D7;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    padding: 2px 0;
+}
+
+.location-item:hover {
+    color: #c49a6c;
+    transform: translateX(3px);
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    margin: 40px;
+    padding-top: 50px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.cta-text {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.cta-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #c49a6c;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid #c49a6c;
+    padding-bottom: 5px;
+}
+
+.cta-link:hover {
+    color: #a67c52;
+    letter-spacing: 2.5px;
+    border-bottom-color: #a67c52;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.province-column {
+    animation: fadeIn 0.4s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .provinces-row {
+        gap: 40px;
+    }
+    
+    .province-column {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+    
+    .page-title {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+    
+    .filter-tabs {
+        gap: 12px 20px;
+        margin-bottom: 40px;
+    }
+    
+    .filter-tab {
+        font-size: 9px;
+    }
+    
+    .filter-tab.active::after {
+        bottom: -14px;
+    }
+    
+    .provinces-row {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .province-column {
+        min-width: 200px;
+        flex: auto;
+    }
+    
+    .province-title {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .location-item {
+        font-size: 11px;
+    }
+    
+    .cta-text {
+        font-size: 12px;
+    }
+    
+    .cta-link {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-tabs {
+        gap: 10px 15px;
+    }
+    
+    .filter-tab {
+        font-size: 8px;
+    }
+    
+    .provinces-row {
+        flex-direction: column;
+        gap: 35px;
+    }
+    
+    .province-column {
+        width: 100%;
+    }
+    
+    .location-list {
+        gap: 8px;
+    }
+    
+    .location-item {
+        font-size: 10px;
+    }
+}
+/*Footer*/
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 50px;
+  background-color: #0c4a57;
+  color: white;
+}
+
+.footer-left {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.footer-left i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-left i:hover {
+  opacity: 0.7;
+}
+
+.footer-nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.footer-nav-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.footer-contact a:hover {
+  opacity: 0.7;
+}

@@ -1,0 +1,247 @@
+html, body{
+height: 100%;
+margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    flex: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px); 
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f4e5f;
+}
+
+.logo-link {
+    text-decoration: none;  
+    display: inline-block;  
+    color: inherit;         
+}
+
+.logo span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1f4e5f;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #0d2f3a;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #0d2f3a;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+/*Main Body*/ 
+.voucher-top {
+    display: flex;
+    justify-content: space-around;
+    background: #0c3c46;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.voucher-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #e6d5c3;
+    cursor: pointer;
+}
+
+.voucher-designs {
+    padding: 40px;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+/* OVERLAY TEXT */
+.card .overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* HOVER EFFECT */
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card.selected {
+    outline: 4px solid #0c3c46;
+}
+
+.voucher-designs h2 {
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+}
+
+.popup-content input,
+.popup-content textarea,
+.popup-content select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.card img {
+    height: 120px;
+}
+
+
+/*Footer*/
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 50px;
+  background-color: #0c4a57;
+  color: white;
+}
+
+.footer-left {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.footer-left i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-left i:hover {
+  opacity: 0.7;
+}
+
+.footer-nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.footer-nav-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.footer-contact a:hover {
+  opacity: 0.7;
+}

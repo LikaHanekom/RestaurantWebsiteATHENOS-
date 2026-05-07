@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athenos</title>
+    <link rel="stylesheet" href="makeReservations.css">
+    <script src="reservation.js" defer></script>
+</head>
+<body>
+    <section class="container">
+        <section class="image-section">
+        </section>
+
+        <section class="reservation-panel">
+            <div class="close-btn">×</div>
+
+            <h1>MAKE A<br>RESERVATION</h1>
+
+            <div class="options">
+                <span>SELECT A LOCATION</span>
+                <span>FIND NEAR ME</span>
+            </div>
+
+            <select id="locationSelect">
+                <option value="">Select Restaurant</option>
+                <option value="joburg">Johannesburg</option>
+                <option value="pretoria">Pretoria</option>
+            </select>
+
+            <!-- Dynamic info that will update then the location is selected !!remember to update this to link to database and be responsive. -->
+            <div id="locationDetails" class="hidden">
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Phone:</strong> <span id="phone"></span></p>
+
+                <div>
+                    <strong>Available Times:</strong>
+                    <div id="times"></div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="makeReservation.html">BOOK ONLINE ></a>
+                <a href="contactUs.html">OR EMAIL US ></a>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

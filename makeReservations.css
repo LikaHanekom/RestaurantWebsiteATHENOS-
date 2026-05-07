@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    height: 100vh;
+}
+
+/* MAIN LAYOUT */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT IMAGE */
+.image-section {
+    flex: 1.2;
+    background: 
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('assets/The\ Best\ Greek\ Food\ We\ Ate\ in\ Rhodes\ &\ AthensReservation.jpeg') center/cover no-repeat;
+}
+
+/* RIGHT PANEL */
+.reservation-panel {
+    flex: 0.8;
+    background: linear-gradient(135deg, #0b3c49, #062d36);
+    color: #fff;
+    padding: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* TITLE */
+.reservation-panel h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* OPTIONS */
+.options {
+    display: flex;
+    gap: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* SELECT */
+select {
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+select option {
+    color: #000;
+}
+
+/* ACTION LINKS */
+.actions {
+    display: flex;
+    gap: 60px;
+    padding: 4%;
+    font-size: 12px;
+}
+
+.actions a {
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.hidden {
+    display: none;
+}
+
+#locationDetails {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+#times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.time-slot {
+    padding: 8px 12px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.time-slot:hover {
+    background: rgba(255,255,255,0.2);
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athenos</title>
+    <link rel="stylesheet" href="ourLocations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    ATHENOS 
+                    <span>
+                        - GREEK TAVERNA -
+                    </span>
+                </div>
+            </a>
+            <section class="nav-links">
+                <a href="ourStory.html">OUR STORY</a>
+                <a href="specialEvents.html">SPECIAL EVENTS</a>
+                <a href="ourLocations.html">LOCATIONS</a>
+                <a href="viewMenu.html">MENU</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="vouchers.html">VOUCHERS</a>
+            </section>
+            <a href="makeReservation.html" class="btn">MAKE A RESERVATION</a>
+    </header>
+    <main>
+
+   <section class="locations-page">
+        <div class="container">
+            <!-- Page Header -->
+            <h1 class="page-title">Our Locations</h1>
+            
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">ALL</button>
+                <button class="filter-tab" data-filter="check-in">CHECK IN</button>
+                <button class="filter-tab" data-filter="delivery">DELIVERY</button>
+                <button class="filter-tab" data-filter="liquor">LIQUOR LICENCE</button>
+                <button class="filter-tab" data-filter="on-site">ON-SITE SERVICES</button>
+                <button class="filter-tab" data-filter="smoking">SMOKING</button>
+                <button class="filter-tab" data-filter="takeaway">TAKEAWAY</button>
+                <button class="filter-tab" data-filter="wheelchair">WHEELCHAIR</button>
+            </div>
+            
+            <!-- Provinces Row (Horizontal) -->
+            <div class="provinces-row">
+                <!-- Gauteng -->
+                <div class="province-column">
+                    <h2 class="province-title">Gauteng</h2>
+                    <div class="location-list">
+                        <div class="location-item">Blueberry</div>
+                        <div class="location-item">Harvest Place</div>
+                        <div class="location-item">Montecasino</div>
+                        <div class="location-item">Morningside</div>
+                        <div class="location-item">Newmarket</div>
+                        <div class="location-item">Silverstar Casino</div>
+                        <div class="location-item">Waterfall Corner</div>
+                    </div>
+                </div>
+                
+                <!-- Western Cape -->
+                <div class="province-column">
+                    <h2 class="province-title">Western Cape</h2>
+                    <div class="location-list">
+                        <div class="location-item">Camps Bay</div>
+                        <div class="location-item">Century City</div>
+                        <div class="location-item">Durbanville</div>
+                        <div class="location-item">Franschhoek</div>
+                        <div class="location-item">George</div>
+                        <div class="location-item">GrandWest</div>
+                        <div class="location-item">Hermanus</div>
+                        <div class="location-item">Mouille Point</div>
+                        <div class="location-item">Paarl</div>
+                        <div class="location-item">Rondebosch</div>
+                        <div class="location-item">Somerset West</div>
+                        <div class="location-item">Steenberg</div>
+                        <div class="location-item">Stellenbosch</div>
+                        <div class="location-item">Willowbridge</div>
+                        <div class="location-item">Worcester</div>
+                    </div>
+                </div>
+                
+                <!-- Northern Cape -->
+                <div class="province-column">
+                    <h2 class="province-title">Northern Cape</h2>
+                    <div class="location-list">
+                        <div class="location-item">Kimberley</div>
+                    </div>
+                </div>
+                
+                <!-- KwaZulu-Natal -->
+                <div class="province-column">
+                    <h2 class="province-title">KwaZulu-Natal</h2>
+                    <div class="location-list">
+                        <div class="location-item">Kloof</div>
+                        <div class="location-item">Oceans</div>
+                    </div>
+                </div>
+                
+                <!-- Eastern Cape -->
+                <div class="province-column">
+                    <h2 class="province-title">Eastern Cape</h2>
+                    <div class="location-list">
+                        <div class="location-item">Walmer</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+        <!-- CTA Section -->
+    <section class="cta-section">
+        <p class="cta-text">Experience culinary excellence with us.</p>
+        <a href="makeReservation.html" class="cta-link">BOOK NOW ></a>
+    </section>
+    
+    </main>
+    <footer class="footer">
+        <section class="footer-left">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-f"></i>
+        </section>
+        <section class="footer-nav-links">
+            <a href="ourStory.html">OUR STORY</a>
+            <a href="specialEvents.html">SPECIAL EVENTS</a>
+            <a href="ourLocations.html">LOCATIONS</a>
+            <a href="viewMenu.html">MENU</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="vouchers.html">VOUCHERS</a>
+            <a href="vouchers.html">LOGIN</a>
+        </section>
+        <section class="footer-contact">
+            <a href="contactUs.html">CONTACT US</a>
+        </section>
+    </footer>
+
+    <script>
+        // Filter tabs functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const provinceColumns = document.querySelectorAll('.province-column');
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filter = tab.getAttribute('data-filter');
+                
+                if (filter === 'all') {
+                    provinceColumns.forEach(column => {
+                        column.style.display = 'block';
+                    });
+                } else {
+                    provinceColumns.forEach(column => {
+                        column.style.display = 'block';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
