@@ -1,0 +1,42 @@
+Script started at 2026-05-08 14:36:15
+DB Connected successfully
+POST data: Array
+(
+    [email] => adriaansteyn3310@gmail.com
+    [password] => Adri@@n123
+)
+
+Email: adriaansteyn3310@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 2
+    [user_name] => Adriaan
+    [user_email] => adriaansteyn3310@gmail.com
+    [user_password] => $2y$10$O2MefxRrytp22hCUntUO.Og3q3qtBlPgsdFXj5UkUIs/pMcK4qr3a
+    [user_role] => customer
+)
+
+Password verify result: true
+Login successful for user_id: 2
+Script started at 2026-05-08 15:01:12
+DB Connected successfully
+POST data: Array
+(
+    [email] => adriaansteyn3310@gmail.com
+    [password] => Adri@@n123
+)
+
+Email: adriaansteyn3310@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 2
+    [user_name] => Adriaan
+    [user_email] => adriaansteyn3310@gmail.com
+    [user_password] => $2y$10$O2MefxRrytp22hCUntUO.Og3q3qtBlPgsdFXj5UkUIs/pMcK4qr3a
+    [user_role] => customer
+)
+
+Password verify result: true
+Login successful for user_id: 2

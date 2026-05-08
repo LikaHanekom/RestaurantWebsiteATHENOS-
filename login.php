@@ -21,8 +21,8 @@
 
             <form id="loginForm" class="form active">
                 <div class="form-grid">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <input type="email" id="login_email" placeholder="Email">
+                    <input type="password" id="login_password" placeholder="Password">
                 </div>
 
                 <button type="submit">LOGIN ></button>

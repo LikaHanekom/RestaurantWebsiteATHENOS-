@@ -69,3 +69,35 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
     })
     .catch(error => console.error("Error:", error));
 });
+
+//Login form submission
+
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const email = document.getElementById("login_email").value;
+    const password = document.getElementById("login_password").value;
+    
+    console.log("Email being sent:", email);
+    console.log("Password being sent:", password);
+
+    fetch("login_functionality.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Response from server:", data);
+        console.log("Response trimmed:", data.trim());
+        
+        if(data.trim() === "success"){
+            window.location.href = "index.php";
+        } else {
+            alert("Invalid login details. Server says: " + data);
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});

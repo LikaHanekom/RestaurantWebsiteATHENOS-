@@ -9,25 +9,7 @@
      <script src="index.js" defer></script>
 </head>
 <body>
-    <header class="header">
-            <a href="/" class="logo-link">
-                <div class="logo">
-                    ATHENOS 
-                    <span>
-                        - GREEK TAVERNA -
-                    </span>
-                </div>
-            </a>
-            <section class="nav-links">
-                <a href="ourStory.html">OUR STORY</a>
-                <a href="specialEvents.html">SPECIAL EVENTS</a>
-                <a href="ourLocations.html">LOCATIONS</a>
-                <a href="viewMenu.html">MENU</a>
-                <a href="gallery.html">GALLERY</a>
-                <a href="vouchers.html">VOUCHERS</a>
-            </section>
-            <a href="makeReservation.html" class="btn">MAKE A RESERVATION</a>
-    </header>
+    <?php include 'header.php'; ?>
     <section class="hero">
 
         <div class="hero-slides">
@@ -134,24 +116,6 @@
         </section>
 
     </main>
-    <footer class="footer">
-        <section class="footer-left">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook-f"></i>
-        </section>
-        <section class="footer-nav-links">
-            <a href="ourStory.html">OUR STORY</a>
-            <a href="specialEvents.html">SPECIAL EVENTS</a>
-            <a href="ourLocations.html">LOCATIONS</a>
-            <a href="viewMenu.html">MENU</a>
-            <a href="gallery.html">GALLERY</a>
-            <a href="vouchers.html">VOUCHERS</a>
-            <a href="login.html">LOGIN</a>
-        </section>
-        <section class="footer-contact">
-            <a href="contactUs.html">CONTACT US</a>
-        </section>
-    </footer>
-    
+    <?php include 'footer.php'; ?>
 </body>
 </html>
