@@ -7,7 +7,7 @@ let selectedLocationId = null;
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Page loaded');
+    console.log('Page loaded');
     
     // Get DOM elements
     window.locationSelect = document.getElementById('locationSelect');
@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close button
     const closeBtn = document.querySelector(".close-btn");
     if (closeBtn) {
-        closeBtn.addEventListener("click", function() {
+        closeBtn.addEventListener("click", function(e) {
+            e.preventDefault();
             window.location.href = "index.html";
         });
     }
@@ -54,39 +55,31 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to populate time slots
 function populateTimeSlots() {
     console.log('Populating time slots...');
-    
-    // Clear existing options
     timeSlot.innerHTML = '';
     
-    // Add default option
     const defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.textContent = '-- Select a time --';
     timeSlot.appendChild(defaultOption);
     
-    // Time slots array
     const timeSlots = [
-        '12:00 PM', '12:30 PM', '13:00 PM', '13:30 PM', '14:00 PM',
-        '14:30 PM', '17:00 PM', '17:30 PM', '18:00 PM', '18:30 PM',
-        '19:00 PM', '19:30 PM', '20:00 PM', '20:30 PM', '21:00 PM'
+        '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM', '02:00 PM',
+        '02:30 PM', '05:00 PM', '05:30 PM', '06:00 PM', '06:30 PM',
+        '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM', '09:00 PM'
     ];
     
-    // Add each time slot
     for (let i = 0; i < timeSlots.length; i++) {
         const option = document.createElement('option');
         option.value = timeSlots[i];
         option.textContent = timeSlots[i];
         timeSlot.appendChild(option);
     }
-    
-    console.log('Added', timeSlots.length, 'time slots');
-    console.log('Time dropdown now has', timeSlot.children.length, 'options');
 }
 
 // Load locations from database
 async function loadLocations() {
     try {
-        console.log(' Fetching locations...');
+        console.log('Fetching locations...');
         const response = await fetch(GET_LOCATIONS_URL);
         const data = await response.json();
         
@@ -95,8 +88,6 @@ async function loadLocations() {
         }
         
         locationsData = data;
-        
-        // Populate dropdown
         locationSelect.innerHTML = '<option value="">-- Choose a restaurant --</option>';
         
         for (let i = 0; i < locationsData.length; i++) {
@@ -105,9 +96,7 @@ async function loadLocations() {
             option.textContent = `${locationsData[i].location_name} (${locationsData[i].province})`;
             locationSelect.appendChild(option);
         }
-        
-        console.log('✅ Loaded', locationsData.length, 'locations');
-        
+        console.log('Loaded', locationsData.length, 'locations');
     } catch (error) {
         console.error('Error:', error);
         locationSelect.innerHTML = '<option value="">Error loading locations</option>';
@@ -120,14 +109,11 @@ function onLocationChange() {
     const id = parseInt(locationSelect.value);
     selectedLocationId = id;
     
-    console.log('📍 Location selected:', id);
-    
     if (!id) {
         locationInfo.style.display = 'none';
         return;
     }
     
-    // Find the selected location
     let location = null;
     for (let i = 0; i < locationsData.length; i++) {
         if (locationsData[i].location_id === id) {
@@ -137,26 +123,18 @@ function onLocationChange() {
     }
     
     if (location) {
-        console.log('📍 Showing details for:', location.location_name);
-        
-        // Show location details
         addressSpan.textContent = location.address;
         phoneSpan.textContent = location.phone;
         emailSpan.textContent = location.email;
         phoneLink.href = 'tel:' + location.phone.replace(/\D/g, '');
         emailLink.href = 'mailto:' + location.email;
         locationInfo.style.display = 'block';
-        
-        // Populate time slots
         populateTimeSlots();
     }
 }
 
-// Handle date change
 function onDateChange() {
     if (selectedLocationId) {
-        console.log(' Date changed to:', reservationDate.value);
-        console.log(' Refreshing time slots...');
         populateTimeSlots();
     }
 }
@@ -186,7 +164,7 @@ function validateForm() {
         showToast('Please select a date', 'error');
         return false;
     }
-    if (!timeSlot.value || timeSlot.value === '') {
+    if (!timeSlot.value) {
         showToast('Please select a time', 'error');
         return false;
     }
@@ -200,9 +178,8 @@ function validateForm() {
 
 // Submit reservation
 async function submitReservation(e) {
-    
     if (e) e.preventDefault();
-    console.log(' Submitting reservation...');
+    console.log('Submitting reservation...');
 
     if (!validateForm()) {
         return;
@@ -222,8 +199,6 @@ async function submitReservation(e) {
         special_requests: specialRequests.value.trim() || null
     };
     
-    console.log(' Sending:', data);
-    
     try {
         const response = await fetch(CREATE_RESERVATION_URL, {
             method: 'POST',
@@ -231,17 +206,18 @@ async function submitReservation(e) {
             body: JSON.stringify(data)
         });
         
-        
-        // CATCH PHP CRASHES BEFORE PARSING JSON
-        if (!response.ok) {
-            const rawText = await response.text();
-            console.error('PHP Server Error Text:', rawText);
-            showToast('Server error encountered. Check console.', 'error');
+        // Grab raw response data as string to catch unhandled errors
+        const rawText = await response.text();
+        console.log('Raw Server Output:', rawText);
+
+        let result;
+        try {
+            result = JSON.parse(rawText);
+        } catch(jsonErr) {
+            console.error('Failed parsing server response as JSON output.');
+            showToast('Server returned an invalid signature. Check terminal logs.', 'error');
             return;
         }
-        
-        const result = await response.json();
-        console.log(' Response:', result);
         
         if (result.success) {
             showToast('Reservation confirmed! Check your email.', 'success');
@@ -262,15 +238,14 @@ async function submitReservation(e) {
             showToast(result.error || 'Reservation failed', 'error');
         }
     } catch (error) {
-        console.error('Error:', error);
-        showToast('Network error. Please try again.', 'error');
+        console.error('Error Processing Query:', error);
+        showToast('Network interface error. Try again later.', 'error');
     } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'CONFIRM RESERVATION';
     }
 }
 
-// Toast notification
 function showToast(message, type) {
     const toast = document.getElementById('toast');
     toast.textContent = message;

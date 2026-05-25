@@ -9,16 +9,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- Left Image -->
         <div class="image-section"></div>
 
-        <!-- Right Form Panel -->
         <div class="form-panel">
-            <button class="close-btn" onclick="window.location.href='/'">&times;</button>
+            <button class="close-btn" id="closeBtn">&times;</button>
             
             <h1>MAKE A<br>RESERVATION</h1>
             
-            <!-- Location Selection -->
             <div class="form-group">
                 <label>SELECT LOCATION</label>
                 <select id="locationSelect">
@@ -26,7 +23,6 @@
                 </select>
             </div>
 
-            <!-- Location Info (shows when location selected) -->
             <div id="locationInfo" style="display: none;">
                 <div class="info-box">
                     <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> <span id="address"></span></p>
@@ -35,7 +31,6 @@
                 </div>
             </div>
 
-            <!-- Reservation Details -->
             <div class="form-group">
                 <label>YOUR DETAILS</label>
                 <input type="text" id="customerName" placeholder="Full Name" required>

@@ -41,7 +41,8 @@ if (!$location) {
     exit;
 }
 
-// Insert reservation
+$data['reservation_time'] = date("H:i:s", strtotime($data['reservation_time']));
+// Insert reservation (Removed user_id constraint to prevent NOT NULL database exceptions)
 $sql = "INSERT INTO reservation (location_id, reservation_date, reservation_time, party_size, status, date_created) 
         VALUES (?, ?, ?, ?, 'pending', NOW())";
 
@@ -51,7 +52,7 @@ $stmt->execute();
 $reservation_id = $conn->insert_id;
 
 if ($reservation_id) {
-    // Send confirmation email to customer
+    // Send confirmation email to customer (@ suppression prevents local SMTP configuration crashes)
     $customer_subject = "Athenos - Reservation Confirmation";
     $customer_message = "
     <html>
@@ -69,7 +70,7 @@ if ($reservation_id) {
     </html>
     ";
     
-    mail($data['customer_email'], $customer_subject, $customer_message, "Content-Type: text/html; charset=UTF-8");
+    @mail($data['customer_email'], $customer_subject, $customer_message, "Content-Type: text/html; charset=UTF-8");
     
     // Send notification to location admin
     $admin_subject = "New Reservation at {$location['location_name']}";
@@ -88,7 +89,7 @@ if ($reservation_id) {
     </html>
     ";
     
-    mail($location['location_email'], $admin_subject, $admin_message, "Content-Type: text/html; charset=UTF-8");
+    @mail($location['location_email'], $admin_subject, $admin_message, "Content-Type: text/html; charset=UTF-8");
     
     echo json_encode(['success' => true, 'reservation_id' => $reservation_id]);
 } else {
