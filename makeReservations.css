@@ -2,117 +2,257 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Georgia', serif;
 }
 
 body {
+    font-family: 'Georgia', serif;
     height: 100vh;
+    overflow: hidden;
 }
 
-/* MAIN LAYOUT */
 .container {
     display: flex;
     height: 100vh;
+    width: 100%;
 }
 
-/* LEFT IMAGE */
+/* Left Image */
 .image-section {
     flex: 1.2;
-    background: 
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url('assets/The\ Best\ Greek\ Food\ We\ Ate\ in\ Rhodes\ &\ AthensReservation.jpeg') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('assets/The\ Best\ Greek\ Food\ We\ Ate\ in\ Rhodes\ &\ AthensReservation.jpeg') center/cover no-repeat;
 }
 
-/* RIGHT PANEL */
-.reservation-panel {
+/* Right Form Panel */
+.form-panel {
     flex: 0.8;
     background: linear-gradient(135deg, #0b3c49, #062d36);
     color: #fff;
-    padding: 60px;
+    padding: 50px 40px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    overflow-y: auto;
 }
 
-/* CLOSE BUTTON */
 .close-btn {
     position: absolute;
     top: 20px;
     right: 30px;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* TITLE */
-.reservation-panel h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-    font-family: 'Playfair Display', serif;
-}
-
-/* OPTIONS */
-.options {
-    display: flex;
-    gap: 30px;
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    opacity: 0.8;
-}
-
-/* SELECT */
-select {
-    padding: 15px;
-    background: rgba(255,255,255,0.1);
+    font-size: 32px;
+    background: none;
     border: none;
     color: #fff;
-    margin-bottom: 40px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.close-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    opacity: 0.7;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    border-radius: 8px;
     font-size: 14px;
+    transition: all 0.3s;
 }
 
-select option {
-    color: #000;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #c49a6c;
+    background: rgba(255,255,255,0.15);
 }
 
-/* ACTION LINKS */
-.actions {
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.form-group select option {
+    background: #0b3c49;
+    color: #fff;
+}
+
+.form-row {
     display: flex;
-    gap: 60px;
-    padding: 4%;
-    font-size: 12px;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-.actions a {
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.info-box {
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.info-box p {
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.info-box i {
+    width: 25px;
+    color: #c49a6c;
+}
+
+.info-box a {
     color: #fff;
     text-decoration: none;
-    letter-spacing: 1px;
 }
 
-.hidden {
-    display: none;
+.info-box a:hover {
+    color: #c49a6c;
+    text-decoration: underline;
 }
 
-#locationDetails {
-    margin-top: 20px;
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #c49a6c;
+    color: white;
+    border: none;
+    border-radius: 8px;
     font-size: 14px;
-}
-
-#times {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s;
     margin-top: 10px;
 }
 
-.time-slot {
-    padding: 8px 12px;
-    border: 1px solid #fff;
-    cursor: pointer;
-    font-size: 12px;
+.submit-btn:hover {
+    background: #a67c52;
+    transform: translateY(-2px);
 }
 
-.time-slot:hover {
-    background: rgba(255,255,255,0.2);
+.submit-btn:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.footer-links a:hover {
+    color: #c49a6c;
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    display: none;
+    z-index: 2000;
+    animation: slideIn 0.3s ease;
+}
+
+.toast.success {
+    background: #28a745;
+    color: white;
+}
+
+.toast.error {
+    background: #dc3545;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+    
+    .container {
+        flex-direction: column;
+    }
+    
+    .image-section {
+        flex: 0 0 200px;
+    }
+    
+    .form-panel {
+        flex: 1;
+        padding: 30px 25px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .toast {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        text-align: center;
+    }
 }

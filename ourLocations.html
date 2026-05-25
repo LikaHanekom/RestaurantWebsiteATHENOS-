@@ -46,72 +46,17 @@
                 <button class="filter-tab" data-filter="wheelchair">WHEELCHAIR</button>
             </div>
             
-            <!-- Provinces Row (Horizontal) -->
-            <div class="provinces-row">
-                <!-- Gauteng -->
-                <div class="province-column">
-                    <h2 class="province-title">Gauteng</h2>
-                    <div class="location-list">
-                        <div class="location-item">Blueberry</div>
-                        <div class="location-item">Harvest Place</div>
-                        <div class="location-item">Montecasino</div>
-                        <div class="location-item">Morningside</div>
-                        <div class="location-item">Newmarket</div>
-                        <div class="location-item">Silverstar Casino</div>
-                        <div class="location-item">Waterfall Corner</div>
-                    </div>
+             <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i> Loading locations...
                 </div>
                 
-                <!-- Western Cape -->
-                <div class="province-column">
-                    <h2 class="province-title">Western Cape</h2>
-                    <div class="location-list">
-                        <div class="location-item">Camps Bay</div>
-                        <div class="location-item">Century City</div>
-                        <div class="location-item">Durbanville</div>
-                        <div class="location-item">Franschhoek</div>
-                        <div class="location-item">George</div>
-                        <div class="location-item">GrandWest</div>
-                        <div class="location-item">Hermanus</div>
-                        <div class="location-item">Mouille Point</div>
-                        <div class="location-item">Paarl</div>
-                        <div class="location-item">Rondebosch</div>
-                        <div class="location-item">Somerset West</div>
-                        <div class="location-item">Steenberg</div>
-                        <div class="location-item">Stellenbosch</div>
-                        <div class="location-item">Willowbridge</div>
-                        <div class="location-item">Worcester</div>
-                    </div>
-                </div>
-                
-                <!-- Northern Cape -->
-                <div class="province-column">
-                    <h2 class="province-title">Northern Cape</h2>
-                    <div class="location-list">
-                        <div class="location-item">Kimberley</div>
-                    </div>
-                </div>
-                
-                <!-- KwaZulu-Natal -->
-                <div class="province-column">
-                    <h2 class="province-title">KwaZulu-Natal</h2>
-                    <div class="location-list">
-                        <div class="location-item">Kloof</div>
-                        <div class="location-item">Oceans</div>
-                    </div>
-                </div>
-                
-                <!-- Eastern Cape -->
-                <div class="province-column">
-                    <h2 class="province-title">Eastern Cape</h2>
-                    <div class="location-list">
-                        <div class="location-item">Walmer</div>
-                    </div>
-                </div>
-            </div>
+                <!-- Provinces Row (Dynamic content will be inserted here) -->
+                <div id="provincesContainer" class="provinces-row"></div>
             
         </div>
     </section>
+
         <!-- CTA Section -->
     <section class="cta-section">
         <p class="cta-text">Experience culinary excellence with us.</p>
@@ -138,29 +83,46 @@
         </section>
     </footer>
 
-    <script>
-        // Filter tabs functionality
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const provinceColumns = document.querySelectorAll('.province-column');
-        
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                filterTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                const filter = tab.getAttribute('data-filter');
-                
-                if (filter === 'all') {
-                    provinceColumns.forEach(column => {
-                        column.style.display = 'block';
-                    });
-                } else {
-                    provinceColumns.forEach(column => {
-                        column.style.display = 'block';
-                    });
-                }
-            });
-        });
-    </script>
+    <!-- Popup Modal -->
+   <!-- Popup Modal -->
+    <div id="locationModal" class="location-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalLocationName">Location Name</h3>
+                <button class="close-modal" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="info-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-text" id="modalAddress"></div>
+                </div>
+                <div class="info-row">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="info-text">
+                        <a href="tel:" id="modalPhoneLink" class="clickable-link">
+                            <span id="modalPhone"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-text">
+                        <a href="mailto:" id="modalEmailLink" class="clickable-link">
+                            <span id="modalEmail"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-row" id="modalFeaturesRow" style="display: none;">
+                    <i class="fas fa-tags"></i>
+                    <div class="info-text" id="modalFeatures"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <i class="fas fa-utensils"></i> 
+                <a href="makeReservation.html" id="modalReservationLink" class="reservation-link">Make a reservation at this location</a>
+            </div>
+        </div>
+    </div>
+<script src="ourLocations.js"></script>
 </body>
 </html>

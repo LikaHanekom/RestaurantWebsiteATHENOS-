@@ -23,7 +23,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <a href="vouchers.php">VOUCHERS</a>
     </section>
 
-    <a href="makeReservation.php" class="btn">MAKE A RESERVATION</a>
+    <a href="makeReservation.html" class="btn">MAKE A RESERVATION</a>
 
     <!-- LOGIN / PROFILE ICON - Only appears when logged in -->
     <?php if (isset($_SESSION['user_id'])): ?>

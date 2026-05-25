@@ -1,0 +1,8 @@
+To Do:
+
+1. Add Admin page, make certain sections editable []
+    -Add everything on the database
+2. manageReservations for Admin []
+3. fix reservation logic    []
+4. Add phoneNum and location in locations page [x]
+5. Fix menu page    []
