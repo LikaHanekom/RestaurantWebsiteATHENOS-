@@ -129,7 +129,7 @@
             modalLocationName.textContent = location.location_name;
             modalAddress.textContent = location.address;
             
-            // Set clickable phone number
+            // clickable phone number
             const phoneNumber = location.phone;
             const modalPhoneSpan = document.getElementById('modalPhone');
             const modalPhoneLink = document.getElementById('modalPhoneLink');
@@ -137,7 +137,7 @@
             modalPhoneLink.href = `tel:${phoneNumber.replace(/[^0-9+]/g, '')}`; // Clean phone number for tel: link
             modalPhoneLink.setAttribute('data-tooltip', 'Click to call');
             
-            // Set clickable email
+            // clickable email
             const emailAddress = location.email;
             const modalEmailSpan = document.getElementById('modalEmail');
             const modalEmailLink = document.getElementById('modalEmailLink');
@@ -145,7 +145,7 @@
             modalEmailLink.href = `mailto:${emailAddress}?subject=Athenos%20Reservation%20Inquiry&body=Hello,%20I%27m%20interested%20in%20making%20a%20reservation%20at%20your%20${encodeURIComponent(location.location_name)}%20location.`;
             modalEmailLink.setAttribute('data-tooltip', 'Click to send email');
             
-            // Set reservation link with location parameter
+            // Set reservation link
             const modalReservationLink = document.getElementById('modalReservationLink');
             modalReservationLink.href = `makeReservation.html?location=${encodeURIComponent(location.location_name)}&location_id=${location.location_id}`;
             

@@ -15,6 +15,9 @@
 <div class="dashboard-container">
 
     <!-- Sidebar -->
+     <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
     <aside class="sidebar">
 
         <div class="logo-section">
@@ -78,17 +81,17 @@
 
             <div class="stat-card">
                 <h3>Today's Reservations</h3>
-                <p>18</p>
+                <p id="statToday">0</p>
             </div>
 
             <div class="stat-card">
                 <h3>Pending Requests</h3>
-                <p>5</p>
+                <p id="statPending">0</p>
             </div>
 
             <div class="stat-card">
                 <h3>Website Visitors</h3>
-                <p>1,284</p>
+                <p id="statVisitors">1,284</p>
             </div>
 
         </section>
@@ -106,7 +109,7 @@
                     <h3>Manage Reservations</h3>
                     <p>Approve, cancel or view customer bookings.</p>
 
-                    <button href="manageReservation.php">Open</button>
+                    <button onclick="window.location.href='manageReservations.php'">Open</button>
                 </div>
 
                 <div class="action-card">

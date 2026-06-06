@@ -25,7 +25,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <a href="makeReservation.html" class="btn">MAKE A RESERVATION</a>
 
-    <!-- LOGIN / PROFILE ICON - Only appears when logged in -->
+    <!--PROFILE ICON - Only appears when logged in -->
     <?php if (isset($_SESSION['user_id'])): ?>
         <section class="auth-icon">
             <a href="profile.php" class="profile-icon">

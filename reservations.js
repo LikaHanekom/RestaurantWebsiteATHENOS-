@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeBtn) {
         closeBtn.addEventListener("click", function(e) {
             e.preventDefault();
-            window.location.href = "index.html";
+            window.location.href = "index.php";
         });
     }
 });

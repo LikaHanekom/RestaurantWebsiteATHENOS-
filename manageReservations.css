@@ -1,0 +1,129 @@
+/* Custom Table Sub-styles for Admin Panel integration */
+
+.table-container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+/* TABLE */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* HEADER */
+.admin-table th {
+    background-color: #003b4a;
+    color: white;
+    padding: 18px 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* CELLS */
+.admin-table td {
+    padding: 18px 16px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+    vertical-align: middle;
+    line-height: 1.5;
+}
+
+/* ROW HOVER */
+.admin-table tr:hover {
+    background-color: #f5fbff;
+    transition: background-color 0.2s ease;
+}
+
+/* MAKE STACKED TEXT LOOK CLEAN */
+.admin-table td strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.admin-table td small {
+    display: block;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* STATUS BADGES */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.status-pending { background: #ffeeba; color: #856404; }
+.status-confirmed { background: #d4edda; color: #155724; }
+.status-cancelled { background: #f8d7da; color: #721c24; }
+
+/* ACTION BUTTONS */
+.action-btns {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* BASE BUTTON */
+.btn-table {
+    padding: 7px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+/* APPROVE */
+.btn-approve {
+    background: #28a745;
+    color: white;
+}
+.btn-approve:hover {
+    background: #218838;
+}
+
+/* REJECT */
+.btn-reject {
+    background: #dc3545;
+    color: white;
+}
+.btn-reject:hover {
+    background: #c82333;
+}
+
+/* DELETE */
+.btn-delete {
+    background: #6c757d;
+    color: white;
+}
+.btn-delete:hover {
+    background: #5a6268;
+}
+
+/* LOADING TEXT */
+.loading-text {
+    text-align: center;
+    padding: 30px;
+    font-size: 16px;
+    color: #777;
+}
+
+/* CONSISTENT ROW HEIGHT */
+.admin-table tr {
+    height: 60px;
+}
