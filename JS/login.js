@@ -95,9 +95,9 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
         
         if (data.status === "success") {
             if (data.role === "admin") {
-                window.location.href = "../Admin/mainAdminPage.php";
+                window.location.href = "../Views/mainAdminPage.php";
             } else {
-                window.location.href = "../index.php";
+                window.location.href = "../Views/index.php";
             }
         } else {
             if (data.code === "EMAIL_NOT_FOUND") {
