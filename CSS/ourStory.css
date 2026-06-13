@@ -1,0 +1,789 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+main {
+    flex: 1;
+}
+
+/* ==========================================================================
+   HEADER COMPONENT (Glassmorphism & Responsive Layout)
+   ========================================================================== */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.15);  
+    backdrop-filter: blur(30px);  
+    -webkit-backdrop-filter: blur(30px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.logo-link {
+    text-decoration: none;  
+    display: inline-block;  
+    color: inherit;         
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f4e5f;
+}
+
+.logo span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* Flex Container for keeping Nav Items separate from Mobile Button Toggle */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1f4e5f;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0d2f3a;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #0d2f3a;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #124353;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.auth-icon .profile-icon {
+    color: #1f4e5f;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Hamburger Mobile Toggle Button Hidden on Desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #1f4e5f;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 110;
+}
+
+/* ==========================================================================
+   HERO / COVER SECTION
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    background-image: url('../assets/ChatGPT\ Image\ Feb\ 28\,\ 2026\,\ 01_37_25\ PM.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    color: white;
+    margin-top: 80px; 
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 100;
+    margin-bottom: 1.5rem;
+    letter-spacing: 4px;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   MAIN CONTENT STORY BLOCKS
+   ========================================================================== */
+
+.main-body {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.info:nth-child(even) .story-text { order: 2; }
+.info:nth-child(even) .story-img { order: 1; }
+
+.story-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #2c3e50;
+}
+
+.story-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    font-family: 'Playfair Display', serif;
+}
+
+.story-text p {
+    margin-bottom: 1.2rem;
+}
+
+.story-text a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #1f4e5f;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+.story-text a:hover {
+    color: #122e39;
+    transform: translateX(4px);
+}
+
+.story-img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.story-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   FULL BANNER DISPLAY OVERS
+   ========================================================================== */
+
+.full-image {
+    margin: 60px 0;
+    position: relative; 
+    display: block; 
+    width: 100%; 
+    text-align: center; 
+}
+
+.full-image img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.full-image:hover img {
+    transform: scale(1.01);
+}
+
+.full-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.full-image .overlay-content {
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+    width: 100%;
+}
+
+.full-image .overlay-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+}
+
+.full-image .overlay-line {
+    width: 50px;
+    height: 2px;
+    background: white;
+    margin: 15px auto;
+    transition: width 0.3s ease;
+}
+
+.full-image .overlay-subtitle {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.full-image:hover .overlay { opacity: 1; }
+.full-image:hover .overlay-content { transform: translateY(0); }
+.full-image:hover .overlay-line { width: 80px; }
+
+/* ==========================================================================
+   CHEFS TEAM PANEL
+   ========================================================================== */
+
+.chefs-section {
+    display: flex;
+    background: #0c4a57; 
+    color: white;
+    padding: 60px;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 60px;
+}
+
+.chefs-left {
+    width: 30%;
+    padding-right: 40px;
+}
+
+.chefs-left h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+.chefs-right {
+    width: 70%;
+    display: flex;
+    gap: 20px;
+}
+
+.chef-card {
+    position: relative;
+    width: 33.33%;
+    overflow: hidden;
+    border-radius: 12px;
+    height: 400px; 
+}
+
+.chef-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.chef-card:hover img {
+    transform: scale(1.05);
+}
+
+.chef-overlay {
+    position: absolute;
+    inset: 0; 
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.chef-card:hover .chef-overlay {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   RESTAURANT COMMENTS / AWARDS & REVIEWS SECTION
+   ========================================================================== */
+
+.awards-section {
+    background-color: #fef8f0;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.awards-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #0c4a57;
+    letter-spacing: 2px;
+    font-family: 'Playfair Display', serif;
+}
+
+.awards-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.award-card {
+    background: white;
+    width: 300px;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.award-card:hover {
+    transform: translateY(-5px);
+}
+
+.award-card .icon {
+    font-size: 2rem;
+    color: #d4af37; 
+    margin-bottom: 15px;
+}
+
+.award-card .stars {
+    color: #d9a13b;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.award-card p {
+    font-style: italic;
+    color: #2c3e50;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.award-card h4 {
+    color: #0c4a57;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.review-links {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.review-links p {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.review-links a {
+    margin: 0 10px;
+    color: #0c4a57;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+.review-links a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+    background-color: #0c4a57;
+    color: white;
+}
+
+.footer-left {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.footer-left i {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.footer-left i:hover { opacity: 0.7; }
+
+.footer-nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-nav-links a:hover { opacity: 0.7; }
+
+.footer-contact a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-contact a:hover { opacity: 0.7; }
+
+/* ==========================================================================
+   MEDIA QUERIES (MOBILE RESPONSIVE ADAPTATION)
+   ========================================================================== */
+
+/* Tablet Displays & Medium viewports */
+@media (max-width: 991px) {
+    .header {
+        padding: 15px 20px;
+    }
+    
+    .chefs-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    .chefs-left {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .chefs-right {
+        width: 100%;
+    }
+    
+    .footer-nav-links {
+        gap: 15px; 
+    }
+}
+
+/* Mobile Screens (Phones) */
+@media (max-width: 768px) {
+    /* Unhide and setup responsive state for hamburger element */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Transform navigation layer to slide open vertically */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff; 
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 30px 40px 30px;
+        gap: 30px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        box-sizing: border-box;
+    }
+
+    .nav-container.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        width: 100%;
+        display: block;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /*header positioning on mobile */
+    .header {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+
+    .hero {
+        margin-top: 0;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .info:nth-child(even) .story-text,
+    .info:nth-child(even) .story-img {
+        order: 0;
+    }
+    
+    .story-text {
+        text-align: center;
+    }
+    
+    .story-img {
+        max-width: 300px;
+    }
+    
+    .main-body {
+        width: 95%;
+        padding: 20px 0;
+    }
+
+    /* Chefs Grid stacking rules */
+    .chefs-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chef-card {
+        width: 80%;
+        max-width: 330px;
+        height: 450px;
+    }
+
+    .awards-section {
+        padding: 50px 15px;
+    }
+    
+    .awards-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .awards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .award-card {
+        width: 100%;
+        max-width: 320px;
+        padding: 25px 20px;
+    }
+    
+    .award-card .icon {
+        font-size: 1.8rem;
+    }
+    
+    .award-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* Footer layout vertical */
+    .footer {
+        flex-direction: column; 
+        gap: 25px;              
+        padding: 30px 20px;     
+        text-align: center;
+    }
+
+    .footer-nav-links {
+        flex-direction: column; 
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .footer-left {
+        justify-content: center;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .story-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .story-text p {
+        font-size: 0.95rem;
+    }
+    
+    .chefs-left h2 {
+        font-size: 1.8rem;
+    }
+    
+    .chef-card {
+        height: 350px;
+    }
+    
+    .awards-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .award-card {
+        padding: 20px 15px;
+    }
+    
+    .award-card p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Desktop fix for header */
+@media (min-width: 769px) {
+    .nav-container {
+        display: flex !important;
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        backdrop-filter: none;
+        padding: 0;
+        gap: 35px;
+        box-shadow: none;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+    
+    .header {
+        position: absolute;
+    }
+}

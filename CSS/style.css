@@ -1,0 +1,711 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px; /* Pushes content below fixed header */
+}
+
+main {
+  flex: 1;
+}
+
+/* ==========================================================================
+   2. HEADER & STICKY NAVIGATION STYLES
+   ========================================================================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo-link {
+  text-decoration: none;  
+  color: inherit;         
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f4e5f;
+}
+
+.logo span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin-left: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1f4e5f;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #0d2f3a;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #0d2f3a;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: #1f4e5f;
+}
+
+.auth-icon {
+  display: inline-block;
+}
+
+.profile-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d2f3a;
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(13, 47, 58, 0.08);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.profile-icon:hover {
+  background-color: rgba(13, 47, 58, 0.15);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #1f4e5f;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 110;
+}
+
+/* ==========================================================================
+   3. HERO BANNER BACKGROUND SLIDESHOW STYLES
+   ========================================================================== */
+.hero { 
+  position: relative; 
+  min-height: 50vh; 
+  overflow: hidden; 
+  margin-top: 0;
+}
+
+.hero-slides { 
+  position: relative; 
+  width: 100%; 
+  height: 50vh; 
+}
+
+.hero-slide { 
+  position: absolute; 
+  inset: 0; 
+  background-size: cover; 
+  background-position: 10% 44%; 
+  opacity: 0; 
+  transition: opacity 1.2s ease-in-out; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.hero-slide.active { 
+  opacity: 1; 
+  z-index: 1; 
+}
+
+.hero-overlay { 
+  position: absolute; 
+  inset: 0; 
+  background: rgba(82, 82, 82, 0.5); 
+  z-index: 1; 
+}
+
+.hero-content { 
+  position: relative; 
+  z-index: 2; 
+  max-width: 800px; 
+  padding: 2rem; 
+  color: white; 
+  margin-top: 0;
+  text-align: center; 
+}
+
+.hero-content h1 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 3rem; 
+  font-weight: 100; 
+  letter-spacing: 4px; 
+}
+
+.hero-content h2 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 1.2rem; 
+  font-weight: 300; 
+  margin-top: 10px; 
+  letter-spacing: 1px; 
+  opacity: 0.9; 
+}
+
+/* ==========================================================================
+   4. BODY WORKSPACE CONTENT & TEXT BLOCK STYLES
+   ========================================================================== */
+.content-section {
+  background-color: #fef8f0;
+  padding: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;       
+    flex-direction: column;
+    align-items: center;   
+}
+
+.text-block {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.first-paragraph, .second-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c2418;
+  font-family: 'Georgia', serif;
+}
+
+.first-paragraph { margin-bottom: 30px; }
+.second-paragraph { margin: 0; }
+
+.separator {
+  width: 80%;
+  height: 2px;
+  background-color: #d9a13b;
+  margin: 0 auto 60px;
+}
+
+/* ==========================================================================
+   5. GALLERY MOSAIC GRID BLOCK
+   ========================================================================== */
+.gallery {
+  max-width: 1000px;
+  margin: 0 auto; /* This centers the gallery block */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.top-image {
+  margin-bottom: 20px;
+}
+
+.top-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.bottom-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.bottom-images img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   6. USER SOCIAL REVIEWS TRACK
+   ========================================================================== */
+.reviews-section {
+  background-color: #fef8f0;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #0c4a57;
+  letter-spacing: 2px;
+}
+
+.reviews-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 25px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: white;
+  flex: 1;
+  min-width: 250px;
+  max-width: 320px;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.stars {
+  color: #d9a13b;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  letter-spacing: 3px;
+}
+
+.review-card p {
+  font-style: italic;
+  color: #2c2418;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.review-card h4 {
+  color: #0c4a57;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.review-links {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.review-links p {
+  margin-bottom: 15px;
+  color: #2c2418;
+  font-size: 0.95rem;
+}
+
+.review-links a {
+  display: inline-block;
+  margin: 0 12px;
+  padding: 8px 16px;
+  color: #0c4a57;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #0c4a57;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.review-links a:hover {
+  background-color: #0c4a57;
+  color: white;
+  text-decoration: none;
+}
+
+/* Mobile styles for reviews */
+@media (max-width: 768px) {
+  .reviews-section {
+    padding: 40px 15px;
+  }
+  
+  .reviews-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .reviews-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .review-card {
+    width: 100%;
+    max-width: 350px;
+    min-width: auto;
+    padding: 25px 20px;
+  }
+  
+  .stars {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  
+  .review-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .review-links {
+    margin-top: 35px;
+  }
+  
+  .review-links a {
+    display: inline-block;
+    margin: 5px 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .reviews-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .review-card {
+    padding: 20px 15px;
+  }
+  
+  .review-card p {
+    font-size: 0.85rem;
+  }
+  
+  .review-links a {
+    margin: 5px 5px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet styles for reviews */
+@media (min-width: 769px) and (max-width: 992px) {
+  .reviews-container {
+    gap: 20px;
+  }
+  
+  .review-card {
+    min-width: 220px;
+    max-width: 280px;
+    padding: 25px 20px;
+  }
+  
+  .review-card p {
+    font-size: 0.9rem;
+  }
+}
+/* ==========================================================================
+   7. FOOTER SECTION STYLES (PRESERVED ORIGINAL)
+   ========================================================================== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 50px;
+  background-color: #0c4a57;
+  color: white;
+}
+
+.footer-left {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.footer-left i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-left i:hover {
+  opacity: 0.7;
+}
+
+.footer-nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.footer-nav-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.footer-contact a:hover {
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (RESPONSIVE STYLES)
+   ========================================================================== */
+
+/* Tablets, Large Screens, iPad Views */
+@media (max-width: 992px) {
+  body {
+    padding-top: 65px;
+  }
+  
+  .header {
+    padding: 12px 30px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-container {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 280px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 90px 30px;
+    margin-left: 0;
+    gap: 40px;
+    transition: right 0.4s ease-in-out;
+    z-index: 105;
+  }
+
+  .nav-container.active {
+    right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Landscape Phones & Small Tablets */
+@media (max-width: 900px) {
+  .footer-nav-links {
+    gap: 15px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1rem;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+  
+  .header {
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+  
+  .logo span {
+    font-size: 8px;
+  }
+  
+  .hero-slides {
+    height: 40vh;
+  }
+  
+  .hero {
+    min-height: 40vh;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .hero-content h2 {
+    font-size: 0.9rem;
+  }
+  
+  .reviews-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .reviews-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .review-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  /* FOOTER RESPONSIVE STYLES (PRESERVED ORIGINAL) */
+  .footer {
+    flex-direction: column;
+    gap: 25px;  
+    padding: 30px 20px;  
+    text-align: center;
+  }
+
+  .footer-nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .bottom-images {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .top-image img {
+    height: 200px;
+  }
+  
+  .bottom-images img {
+    height: 200px;
+  }
+  
+  .text-block {
+    padding: 0 15px;
+  }
+  
+  .first-paragraph, .second-paragraph {
+    font-size: 1rem;
+  }
+  
+  .separator {
+    width: 90%;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .hero-content h2 {
+    font-size: 0.8rem;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}

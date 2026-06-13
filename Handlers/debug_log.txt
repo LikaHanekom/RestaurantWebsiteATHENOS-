@@ -1,0 +1,294 @@
+Script started at 2026-06-13 06:29:13
+DB Connected successfully
+POST data: Array
+(
+    [email] => hanekomhanlie@gmail.com
+    [password] => Lovetennis@16
+)
+
+Email: hanekomhanlie@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 3
+    [user_name] => Hanlie
+    [user_email] => hanekomhanlie@gmail.com
+    [user_password] => $2y$10$KqgTlGIj6oQhbtKvfhjhceZSMLkBu4B7V6o0i0pW16PXlrhGYlg7y
+    [user_role] => customer
+)
+
+Password verify result: true
+Login successful for user_id: 3
+Script started at 2026-06-13 07:07:43
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$YourHashedPasswordHere
+    [user_role] => admin
+)
+
+Password verify result: false
+Password verification failed
+Script started at 2026-06-13 07:07:55
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$YourHashedPasswordHere
+    [user_role] => admin
+)
+
+Password verify result: false
+Password verification failed
+Script started at 2026-06-13 07:09:45
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi
+    [user_role] => admin
+)
+
+Password verify result: false
+Password verification failed
+Script started at 2026-06-13 07:13:36
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 08:24:13
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 08:29:55
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 08:31:03
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 08:31:37
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 10:06:40
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 10:07:46
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 10:08:33
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 10:09:28
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 10:10:06
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin

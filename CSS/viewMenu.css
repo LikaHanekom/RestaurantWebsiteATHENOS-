@@ -1,0 +1,920 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+/* ==========================================================================
+   HEADER COMPONENT (Glassmorphism & Responsive Layout)
+   ========================================================================== */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.15);  
+    backdrop-filter: blur(30px);  
+    -webkit-backdrop-filter: blur(30px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.logo-link {
+    text-decoration: none;  
+    display: inline-block;  
+    color: inherit;         
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f4e5f;
+}
+
+.logo span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* Flex Container for keeping Nav Items separate from Mobile Button Toggle */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1f4e5f;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0d2f3a;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #0d2f3a;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #124353;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.auth-icon .profile-icon {
+    color: #1f4e5f;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Hamburger Mobile Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #1f4e5f;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 110;
+}
+
+/* ==========================================================================
+   HERO / COVER SECTION
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    background-image: url('../assets/Greek Lamb Gyros With Pita And Tahini Yogurt Sauce2.jpeg');
+    background-size: cover;
+    background-position: 10% 50%;
+    background-repeat: no-repeat;
+    min-height: 50vh;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(82, 82, 82, 0.5); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    color: white;
+    margin-top: 80px; 
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 100;
+    letter-spacing: 4px;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   MAIN MENU CONTAINER
+   ========================================================================== */
+
+.menu-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.menu-container h1 {
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.subtitle {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   STICKY SORTING NAVIGATION BAR
+   ========================================================================== */
+
+.menu-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    z-index: 100;
+    width: 100%;
+}
+
+.menu-scroll {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 15px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu-scroll a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    white-space: nowrap;
+}
+
+.menu-scroll a.active {
+    color: black;
+    font-weight: bold;
+}
+
+.menu-scroll a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: black;
+}
+
+.divider {
+    color: #ccc;
+    margin: 0 10px;
+}
+
+/* ==========================================================================
+   MENU SECTION HEADINGS
+   ========================================================================== */
+
+.menu-section {
+    margin-top: 50px;
+}
+
+.menu-section h2 {
+    letter-spacing: 3px;
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #1f4e5f;
+    text-align: left;
+    border-bottom: 1px solid #1f4e5f;
+    padding-bottom: 5px;
+}
+
+/* ==========================================================================
+   CARDS GRID LAYOUT
+   ========================================================================== */
+
+.menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ==========================================================================
+   INDIVIDUAL ITEM CARDS
+   ========================================================================== */
+
+.menu-item {
+    display: flex;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-2px);
+}
+
+.menu-item-img {
+    width: 130px;
+    height: 100px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.menu-item-info {
+    padding: 15px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1f4e5f;
+    margin-bottom: 5px;
+}
+
+.title span {
+    font-weight: bold;
+    color: #333;
+}
+
+.menu-item p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   TITLE LEFT & DIETARY BADGES STYLE
+   ========================================================================== */
+
+.title-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-family: sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.badge.vegan {
+    background-color: #e2f0d9;
+    color: #385723;
+    border: 1px solid #385723;
+}
+
+.badge.gluten {
+    background-color: #fff2cc;
+    color: #7f6000;
+    border: 1px solid #7f6000;
+}
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+    background-color: #0c4a57;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-left {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.footer-left i {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-left i:hover {
+    opacity: 0.7;
+}
+
+.footer-nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.footer-nav-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-contact a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.footer-contact a:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES 
+   ========================================================================== */
+
+/* iPad and Tablet devices - ENABLE HAMBURGER MENU (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Show hamburger menu on iPad */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Hide navigation container by default (off-screen) */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 100px 35px 40px 35px;
+        gap: 35px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        box-sizing: border-box;
+    }
+    
+    /* Active state for navigation */
+    .nav-container.active {
+        right: 0;
+    }
+    
+    /* Stack navigation links vertically */
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 25px;
+    }
+    
+    .nav-links a {
+        font-size: 18px;
+        width: 100%;
+        display: block;
+        padding: 8px 0;
+        border-bottom: 1px solid #eeeeee;
+    }
+    
+    /* Stack header actions vertically */
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+        border-top: 1px solid #eeeeee;
+        padding-top: 25px;
+    }
+    
+    /* Make button full width */
+    .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    
+    /* Fix header positioning on iPad */
+    .header {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 15px 25px;
+    }
+    
+    /* Add padding to body for fixed header */
+    body {
+        padding-top: 70px;
+    }
+    
+    /* Hero adjustments for iPad */
+    .hero {
+        margin-top: 0;
+        min-height: 45vh;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Menu container adjustments */
+    .menu-container {
+        padding: 30px 25px;
+    }
+    
+    /* Footer adjustments for iPad */
+    .footer {
+        padding: 30px 40px;
+        gap: 25px;
+    }
+    
+    /* iPad Portrait specific */
+    @media (orientation: portrait) {
+        .footer {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .footer-left {
+            justify-content: center;
+            order: 2;
+        }
+        
+        .footer-nav-links {
+            justify-content: center;
+            flex-wrap: wrap;
+            order: 1;
+        }
+        
+        .footer-contact {
+            order: 3;
+        }
+        
+        .menu-scroll {
+            justify-content: flex-start;
+        }
+    }
+    
+    /* iPad Landscape specific */
+    @media (orientation: landscape) {
+        .footer {
+            flex-direction: row;
+        }
+        
+        .footer-nav-links {
+            gap: 25px;
+        }
+    }
+}
+
+/* Small Tablet Devices (600px - 767px) - Also enable hamburger menu */
+@media (min-width: 600px) and (max-width: 767px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 30px 40px 30px;
+        gap: 30px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        box-sizing: border-box;
+    }
+    
+    .nav-container.active {
+        right: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .nav-links a {
+        font-size: 16px;
+        width: 100%;
+        display: block;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+        border-top: 1px solid #eeeeee;
+        padding-top: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .header {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+    
+    .hero {
+        margin-top: 0;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+    }
+}
+
+/* Mobile Screens (up to 599px) */
+@media (max-width: 599px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 30px 40px 30px;
+        gap: 30px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        box-sizing: border-box;
+    }
+    
+    .nav-container.active {
+        right: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .nav-links a {
+        font-size: 16px;
+        width: 100%;
+        display: block;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    
+    .header {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+    
+    .hero {
+        min-height: 40vh;
+        margin-top: 0;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+        padding: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    
+    .menu-container {
+        padding: 30px 15px;
+    }
+    
+    .menu-container h1 {
+        font-size: 1.5rem;
+    }
+    
+    .menu-scroll {
+        gap: 12px;
+        padding: 12px 15px;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    
+    .menu-scroll a {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    
+    .menu-item {
+        flex-direction: column;
+    }
+    
+    .menu-item-img {
+        width: 100%;
+        height: 180px;
+    }
+    
+    .footer {
+        flex-direction: column;
+        gap: 25px;
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .footer-nav-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .footer-left {
+        justify-content: center;
+    }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .logo span {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .menu-container {
+        padding: 20px 12px;
+    }
+    
+    .menu-container h1 {
+        font-size: 1.3rem;
+    }
+    
+    .subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+    }
+    
+    .menu-scroll {
+        gap: 10px;
+        padding: 10px 12px;
+    }
+    
+    .menu-scroll a {
+        font-size: 11px;
+    }
+    
+    .menu-section {
+        margin-top: 35px;
+    }
+    
+    .menu-section h2 {
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    
+    .menu-item-img {
+        height: 150px;
+    }
+    
+    .menu-item-info {
+        padding: 12px;
+    }
+    
+    .title {
+        font-size: 14px;
+    }
+    
+    .footer {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+}
+
+/* Desktop Navigation Fix (screens above 1024px) */
+@media (min-width: 1025px) {
+    .nav-container {
+        display: flex !important;
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        backdrop-filter: none;
+        padding: 0;
+        gap: 35px;
+        box-shadow: none;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+    
+    .header {
+        position: absolute;
+    }
+}
+
+/* IPad Air portrait (820x1180) */
+@media (min-width: 810px) and (max-width: 830px) and (orientation: portrait) {
+    .menu-container {
+        max-width: 100%;
+        padding: 30px 25px;
+    }
+    
+    .menu-item {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .menu-item-img {
+        width: 120px;
+        height: 100px;
+    }
+    
+    .menu-scroll {
+        justify-content: flex-start;
+        padding: 12px 20px;
+    }
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 70vh;
+    }
+    
+    .nav-container {
+        padding: 70px 25px 20px;
+        overflow-y: auto;
+    }
+    
+    .menu-item-img {
+        height: 140px;
+    }
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

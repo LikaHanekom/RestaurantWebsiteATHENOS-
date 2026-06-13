@@ -1,0 +1,661 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+main {
+    flex: 1;
+}
+
+/* ==========================================================================
+   HEADER COMPONENT (Glassmorphism & Responsive Layout)
+   ========================================================================== */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.15);  
+    backdrop-filter: blur(30px);  
+    -webkit-backdrop-filter: blur(30px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.logo-link {
+    text-decoration: none;  
+    display: inline-block;  
+    color: inherit;         
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f4e5f;
+}
+
+.logo span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* Flex Container for keeping Nav Items separate from Mobile Button Toggle */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1f4e5f;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0d2f3a;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #0d2f3a;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #124353;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.auth-icon .profile-icon {
+    color: #1f4e5f;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* Hamburger Mobile Toggle Button Hidden on Desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #1f4e5f;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 110;
+}
+
+/* ==========================================================================
+   HERO / COVER SECTION
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    background-image: url('../assets/Nōema\ Mykonos\ Gives\ New\ Meaning\ to\ the\ Vernacular\ Heritage\ &\ Culinary\ Traditions\ of\ the\ Cyclades\ _\ Yatzer.jpeg');
+    background-size: cover;
+    background-position: 10% 80%;
+    background-repeat: no-repeat;
+    min-height: 50vh;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(82, 82, 82, 0.5); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    color: white;
+    margin-top: 80px; 
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 100;
+    margin-bottom: 1.5rem;
+    letter-spacing: 4px;
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   MAIN CONTENT STORY BLOCKS
+   ========================================================================== */
+
+.main-body {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.info:nth-child(even) .story-text { order: 2; }
+.info:nth-child(even) .story-img { order: 1; }
+
+.story-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #122e39;
+    max-width: 500px;
+}
+
+.story-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #122e39;
+}
+
+.story-text p {
+    margin-bottom: 1.2rem;
+}
+
+.story-text a {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #1f4e5f;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+.story-text a:hover {
+    color: #122e39;
+    transform: translateX(4px);
+}
+
+.story-img {
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   FULL BANNER DISPLAY OVERLAY
+   ========================================================================== */
+
+.full-image {
+    margin: 60px 0;
+    position: relative; 
+    display: block; 
+    width: 100%; 
+    text-align: center; 
+}
+
+.full-image img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 16px;
+    display: block;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.full-image:hover img {
+    transform: scale(1.01);
+}
+
+.full-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.full-image .overlay-content {
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+    width: 100%;
+}
+
+.full-image .overlay-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+}
+
+.full-image .overlay-line {
+    width: 50px;
+    height: 2px;
+    background: white;
+    margin: 15px auto;
+    transition: width 0.3s ease;
+}
+
+.full-image .overlay-subtitle {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.full-image:hover .overlay { opacity: 1; }
+.full-image:hover .overlay-content { transform: translateY(0); }
+.full-image:hover .overlay-line { width: 80px; }
+
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+    background-color: #0c4a57;
+    color: white;
+}
+
+.footer-left {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.footer-left i {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.footer-left i:hover { opacity: 0.7; }
+
+.footer-nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-nav-links a:hover { opacity: 0.7; }
+
+.footer-contact a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-contact a:hover { opacity: 0.7; }
+
+/* ==========================================================================
+   MEDIA QUERIES (MOBILE RESPONSIVE ADAPTATION)
+   ========================================================================== */
+
+/* Tablet Displays & Medium viewports */
+@media (max-width: 991px) {
+    .header {
+        padding: 15px 20px;
+    }
+    
+    .footer-nav-links {
+        gap: 15px; 
+    }
+    
+    .story-img {
+        width: 300px;
+    }
+    
+    .info {
+        gap: 40px;
+    }
+}
+
+/* Mobile Screens (Phones) */
+@media (max-width: 768px) {
+    /*Unhide and setup responsive state for hamburger element */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Transform navigation layer to slide open */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff; 
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 30px 40px 30px;
+        gap: 30px;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 105;
+        box-sizing: border-box;
+    }
+
+    /* Activated State applied via JavaScript Toggle Click */
+    .nav-container.active {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        width: 100%;
+        display: block;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* 3. Fix header positioning on mobile */
+    .header {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+
+    /* Hero section adjustments */
+    .hero {
+        min-height: 40vh;
+        margin-top: 0;
+    }
+    
+    .hero-content {
+        margin-top: 0;
+        padding: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    /*Re-order layout segments into clean single vertical grids */
+    .info {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .info:nth-child(even) .story-text,
+    .info:nth-child(even) .story-img {
+        order: 0;
+    }
+    
+    .story-text {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .story-text a {
+        display: inline-block;
+        margin: 8px 10px;
+    }
+    
+    .story-img {
+        max-width: 280px;
+        width: 100%;
+    }
+    
+    .main-body {
+        width: 95%;
+        padding: 20px 0;
+    }
+    
+    /* Full image adjustments */
+    .full-image {
+        margin: 40px 0;
+    }
+    
+    .full-image .overlay-title {
+        font-size: 1.5rem;
+    }
+    
+    .full-image .overlay-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .full-image .overlay-line {
+        margin: 10px auto;
+    }
+    
+    /* Footer layout vertical break stacks */
+    .footer {
+        flex-direction: column; 
+        gap: 25px;              
+        padding: 30px 20px;     
+        text-align: center;
+    }
+
+    .footer-nav-links {
+        flex-direction: column; 
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .footer-left {
+        justify-content: center;
+    }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .logo span {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+    
+    .hero {
+        min-height: 35vh;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+    }
+    
+    .story-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .story-text p {
+        font-size: 0.95rem;
+    }
+    
+    .story-text a {
+        font-size: 0.9rem;
+    }
+    
+    .full-image .overlay-title {
+        font-size: 1.2rem;
+    }
+    
+    .full-image .overlay-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .footer {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+}
+
+/* Display on screens above 768px */
+@media (min-width: 769px) {
+    .nav-container {
+        display: flex !important;
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        backdrop-filter: none;
+        padding: 0;
+        gap: 35px;
+        box-shadow: none;
+        transition: none;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+    
+    .header {
+        position: absolute;
+    }
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 70vh;
+    }
+    
+    .nav-container {
+        padding: 70px 25px 20px;
+        overflow-y: auto;
+    }
+    
+    .story-img img {
+        max-width: 200px;
+    }
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

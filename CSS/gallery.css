@@ -1,0 +1,468 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    color: white;
+}
+
+main {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f4e5f;
+}
+
+.logo-link {
+    text-decoration: none;  
+    display: inline-block;  
+    color: inherit;         
+}
+
+.logo span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1f4e5f;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0d2f3a;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #0d2f3a;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* SECTION */
+.ig-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.ig-section h2 {
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-family: 'Playfair Display', serif;
+    color: #0c4a57;
+}
+
+.ig-section p {
+    opacity: 0.7;
+    margin-bottom: 30px;
+    color: #0c4a57;
+}
+
+/* GRID */
+.ig-grid {
+   display: grid;
+    /* Centers the grid items within their cells */
+    justify-items: center; 
+    /* This centers the entire grid container horizontally on the page */
+    margin: 0 auto;
+    max-width: 1000px; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+/* POST */
+.ig-post {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.ig-post img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.ig-post:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s ease;
+    font-size: 14px;
+    color: white;
+}
+
+.ig-post:hover .overlay {
+    opacity: 1;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 50px;
+    background-color: #0c4a57;
+    color: white;
+}
+
+.footer-left {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.footer-left i {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-left i:hover {
+    opacity: 0.7;
+}
+
+.footer-nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.footer-nav-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-contact a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.footer-contact a:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+/* Navigation Container */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #1f4e5f;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 110;
+}
+
+/* Tablet and iPad (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 30px 40px 30px;
+        gap: 30px;
+        transition: right 0.3s ease-in-out;
+        z-index: 105;
+        display: flex;
+    }
+    
+    .nav-container.active {
+        right: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .nav-links a {
+        font-size: 16px;
+        width: 100%;
+        display: block;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .header {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px 25px;
+    }
+    
+    body {
+        padding-top: 65px;
+    }
+    
+    .ig-grid {
+        /* Force 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+    
+    .footer-nav-links {
+        gap: 15px;
+    }
+    
+    @media (orientation: portrait) {
+        .footer {
+            flex-direction: column;
+            text-align: center;
+            gap: 25px;
+        }
+        
+        .footer-left {
+            justify-content: center;
+            order: 2;
+        }
+        
+        .footer-nav-links {
+            justify-content: center;
+            flex-wrap: wrap;
+            order: 1;
+        }
+        
+        .footer-contact {
+            order: 3;
+        }
+    }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 80px 30px 40px 30px;
+        gap: 30px;
+        transition: right 0.3s ease-in-out;
+        z-index: 105;
+        display: flex;
+    }
+    
+    .nav-container.active {
+        right: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .nav-links a {
+        font-size: 16px;
+        width: 100%;
+        display: block;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eeeeee;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .header {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px 20px;
+    }
+    
+    body {
+        padding-top: 65px;
+    }
+    
+    .ig-section {
+        padding: 40px 15px;
+    }
+    
+    .ig-section h2 {
+        font-size: 24px;
+    }
+    
+    .ig-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .ig-post img {
+        height: 220px;
+    }
+    
+    .footer {
+        flex-direction: column;
+        gap: 25px;
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .footer-nav-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .footer-left {
+        justify-content: center;
+    }
+}
+
+/* Small mobile (up to 480px) */
+@media (max-width: 480px) {
+    .ig-section h2 {
+        font-size: 20px;
+    }
+    
+    .ig-section p {
+        font-size: 12px;
+    }
+    
+    .ig-post img {
+        height: 180px;
+    }
+    
+    .footer {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+    
+    .footer-nav-links a {
+        font-size: 12px;
+    }
+}
+
+/* Desktop (above 1024px)  */
+@media (min-width: 1025px) {
+    .nav-container {
+        display: flex !important;
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        padding: 0;
+        gap: 35px;
+    }
+    
+    .menu-toggle {
+        display: none;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+    
+    .header {
+        position: absolute;
+    }
+}
