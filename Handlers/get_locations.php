@@ -6,13 +6,7 @@ header('Access-Control-Allow-Methods: GET');
 
 
 // Database connection - Fix special character in password
-$host = 'localhost';
-$username = 'root';
-$password = 'Lovetennis@16';
-$database = 'restaurant';
-
-// Create connection with proper handling of special characters
-$conn = new mysqli($host, $username, $password, $database);
+require_once 'connection.php';
 
 // Check connection
 if ($conn->connect_error) {

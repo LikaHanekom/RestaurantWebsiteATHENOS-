@@ -7,12 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
     exit();
 }
 
-$host = 'localhost';
-$username = 'root';
-$password = 'Lovetennis@16';
-$database = 'restaurant';
-
-$conn = new mysqli($host, $username, $password, $database);
+require_once 'connection.php';
 
 if ($conn->connect_error) {
     echo json_encode(['success' => false, 'error' => 'Database connection failed']);

@@ -1,9 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "Lovetennis@16", "restaurant");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once 'connection.php';
 
 $name = $_POST['name'];
 $surname = $_POST['surname'];
