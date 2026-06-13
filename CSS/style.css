@@ -203,15 +203,16 @@ main {
 .content-section {
   background-color: #fef8f0;
   padding: 20px 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;       
-    flex-direction: column;
-    align-items: center;   
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .text-block {
@@ -242,13 +243,15 @@ main {
    ========================================================================== */
 .gallery {
   max-width: 1000px;
-  margin: 0 auto; /* This centers the gallery block */
+  margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .top-image {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .top-image img {
@@ -256,12 +259,14 @@ main {
   height: 300px;
   object-fit: cover;
   display: block;
+  border-radius: 12px;
 }
 
 .bottom-images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  width: 100%;
 }
 
 .bottom-images img {
@@ -269,6 +274,51 @@ main {
   height: 250px;
   object-fit: cover;
   display: block;
+  border-radius: 12px;
+}
+
+/* Gallery Responsive */
+@media (max-width: 900px) {
+  .bottom-images {
+    gap: 15px;
+  }
+  
+  .bottom-images img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    padding: 15px;
+  }
+  
+  .top-image img {
+    height: 200px;
+  }
+  
+  .bottom-images {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .bottom-images img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    padding: 10px;
+  }
+  
+  .top-image img {
+    height: 180px;
+  }
+  
+  .bottom-images img {
+    height: 180px;
+  }
 }
 
 /* ==========================================================================
@@ -708,4 +758,24 @@ main {
   .container {
     padding: 0 15px;
   }
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
