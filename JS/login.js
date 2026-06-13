@@ -86,28 +86,30 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
         },
         body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
     })
-    .then(response => response.json())  // Parse as JSON
+    .then(response => {
+        console.log("Response status:", response.status);
+        return response.json();
+    })
     .then(data => {
         console.log("Response from server:", data);
         
-        // Check if login was successful
         if (data.status === "success") {
             if (data.role === "admin") {
-                window.location.href = "../Views/mainAdminPage.php";
+                window.location.href = "../Admin/mainAdminPage.php";
             } else {
-                window.location.href = "../Views/index.php";
+                window.location.href = "../index.php";
             }
         } else {
-            // Handle error messages
             if (data.code === "EMAIL_NOT_FOUND") {
                 alert("Email not found. Please register first.");
-                // Switch to register form
                 const showRegister = document.getElementById("showRegister");
                 if (showRegister) showRegister.click();
             } else if (data.code === "INVALID_PASSWORD") {
                 alert("Incorrect password. Please try again.");
                 document.getElementById("login_password").value = "";
                 document.getElementById("login_password").focus();
+            } else if (data.code === "NO_POST_DATA") {
+                alert("Connection error. Please try again.");
             } else {
                 alert(data.message || "Invalid login details. Please try again.");
             }

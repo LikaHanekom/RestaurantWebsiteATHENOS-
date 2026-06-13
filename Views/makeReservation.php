@@ -11,7 +11,7 @@
     <div class="container">
         <div class="image-section"></div>
 
-        <div class="form-panel">
+        <section class="form-panel">
             <button class="close-btn" id="closeBtn">&times;</button>
             
             <h1>MAKE A<br>RESERVATION</h1>
@@ -65,7 +65,7 @@
             <div class="footer-links">
                 <a href="#">OR EMAIL US ></a>
             </div>
-        </div>
+        </section>
     </div>
 
     <div id="toast" class="toast"></div>
