@@ -292,3 +292,93 @@ User found: Array
 
 Password verify result: true
 Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 12:13:38
+DB Connected successfully
+No POST data received
+Script started at 2026-06-13 12:14:12
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 12:17:04
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 12:21:14
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin
+Script started at 2026-06-13 12:31:18
+DB Connected successfully
+No POST data received
+Script started at 2026-06-13 12:57:31
+DB Connected successfully
+POST data: Array
+(
+    [email] => admin@gmail.com
+    [password] => admin123
+)
+
+Email: admin@gmail.com
+Number of rows found: 1
+User found: Array
+(
+    [user_id] => 4
+    [user_name] => Admin
+    [user_email] => admin@gmail.com
+    [user_password] => $2y$10$PpOnKjhDcSCf5d9F31Lt.O.Qbb4PH5bPIgCasLNEdhsmpuNGGyfpS
+    [user_role] => admin
+)
+
+Password verify result: true
+Login successful for user_id: 4 Role: admin

@@ -8,12 +8,7 @@ ini_set('display_errors', 1);
 // Log to see if script is running
 file_put_contents('debug_log.txt', "Script started at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
 
-$conn = new mysqli("localhost", "root", "Lovetennis@16", "restaurant");
-
-if ($conn->connect_error) {
-    file_put_contents('debug_log.txt', "DB Connection failed: " . $conn->connect_error . "\n", FILE_APPEND);
-    die("Connection failed");
-}
+require_once 'connection.php';
 
 file_put_contents('debug_log.txt', "DB Connected successfully\n", FILE_APPEND);
 

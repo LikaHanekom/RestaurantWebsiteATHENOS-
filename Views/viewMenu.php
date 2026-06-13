@@ -6,7 +6,7 @@
     <title>Athenos - Menu</title>
     <link rel="stylesheet" href="../CSS/viewMenu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="viewMenu.js" defer></script>
+    <script src="../JS/viewMenu.js" defer></script>
 </head>
 <body>
     <?php include 'header.php'; ?>
