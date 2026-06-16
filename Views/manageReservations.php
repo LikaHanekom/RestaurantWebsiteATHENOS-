@@ -22,7 +22,7 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li onclick="window.location.href='mainAdminPage.html'">Dashboard</li>
+                <li onclick="window.location.href='mainAdminPage.php'">Dashboard</li>
                 <li class="active">Reservations</li>
             </ul>
         </nav>
@@ -48,14 +48,13 @@
                         <th>Location</th>
                         <th>Date & Time</th>
                         <th>Guests</th>
-                        <th>Requests</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="reservationsTableBody">
                     <tr>
-                        <td colspan="7" class="loading-text">Loading client bookings...</td>
+                        <td colspan="6" class="loading-text">Loading client bookings...</td>
                     </tr>
                 </tbody>
             </table>

@@ -1,3 +1,4 @@
+// Use absolute path for live server
 const FETCH_RESERVATIONS_URL = '../Handlers/get_admin_reservations.php';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll(".nav-links li");
     navItems.forEach((item, index) => {
         item.addEventListener("click", () => {
-            if(index === 0) window.location.href = 'mainAdminPage.php';
+            if(index === 0) window.location.href = '../Views/mainAdminPage.php';
         });
     });
 });
@@ -60,24 +61,31 @@ async function fetchReservations() {
         const rawText = await response.text();
         console.log("RAW SERVER RESPONSE:", rawText);
         
+        // Check if response is empty
+        if (!rawText || rawText.trim() === '') {
+            tableBody.innerHTML = `<tr><td colspan="6" class="loading-text" style="color: red;">Server returned empty response</td></tr>`;
+            return;
+        }
+        
         // Try to parse JSON
         let result;
         try {
             result = JSON.parse(rawText);
         } catch(e) {
             console.error("JSON Parse error:", e);
-            tableBody.innerHTML = `<tr><td colspan="7" class="loading-text" style="color: red;">Error parsing server response</td></tr>`;
+            console.log("First 100 chars of response:", rawText.substring(0, 100));
+            tableBody.innerHTML = `<tr><td colspan="6" class="loading-text" style="color: red;">Error parsing server response. Check console for details.</td></tr>`;
             return;
         }
         
         if (!result.success) {
-            tableBody.innerHTML = `<tr><td colspan="7" class="loading-text" style="color: red;">Error: ${result.error}</td></tr>`;
+            tableBody.innerHTML = `<tr><td colspan="6" class="loading-text" style="color: red;">Error: ${result.error || 'Unknown error'}</td></tr>`;
             return;
         }
         
         const bookings = result.data;
-        if (bookings.length === 0) {
-            tableBody.innerHTML = `<tr><td colspan="7" class="loading-text">No reservations found in database.</td></tr>`;
+        if (!bookings || bookings.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="6" class="loading-text">No reservations found in database.</td></tr>`;
             return;
         }
         
@@ -86,27 +94,41 @@ async function fetchReservations() {
         bookings.forEach(booking => {
             const row = document.createElement('tr');
             
+            // Format date and time
+            const formattedDate = booking.reservation_date ? new Date(booking.reservation_date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            }) : 'N/A';
+            
+            const formattedTime = booking.reservation_time ? new Date('2000-01-01T' + booking.reservation_time).toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit'
+            }) : 'N/A';
+            
+            // Use location_name from PHP or fallback
+            const locationDisplay = booking.location_name || (booking.location_id ? `Location #${booking.location_id}` : 'Unknown Location');
+            
             row.innerHTML = `
                 <td>
                     <strong>${escapeHTML(booking.customer_name || 'Guest User')}</strong><br>
                     <small>${escapeHTML(booking.customer_email || 'N/A')}</small><br>
                     <small>Tel: ${escapeHTML(booking.customer_phone || 'N/A')}</small>
                  </td>
-                <td>${escapeHTML(booking.location_name || 'Unknown Location')}</td>
+                <td>${escapeHTML(locationDisplay)}</td>
                 <td>
-                    <strong>${booking.reservation_date}</strong><br>
-                    <small>${booking.reservation_time}</small>
+                    <strong>${formattedDate}</strong><br>
+                    <small>${formattedTime}</small>
                  </td>
-                <td>${booking.party_size}</td>
-                <td>${escapeHTML(booking.special_requests || 'None')}</td>
+                <td>${booking.party_size || 1}</td>
                 <td>
-                    <span class="status-badge status-${booking.status.toLowerCase()}">
-                        ${booking.status}
+                    <span class="status-badge status-${(booking.status || 'pending').toLowerCase()}">
+                        ${escapeHTML(booking.status || 'pending')}
                     </span>
                  </td>
                 <td>
                     <div class="action-btns">
-                        ${booking.status === 'pending' ? `
+                        ${(booking.status || 'pending') === 'pending' ? `
                             <button class="btn-table btn-approve" onclick="updateStatus(${booking.reservation_id}, 'confirmed')">
                                 ✓ Approve
                             </button>
@@ -114,7 +136,7 @@ async function fetchReservations() {
                                 ✗ Cancel
                             </button>
                         ` : `
-                            <small style="color:#999; display:block; margin-bottom:5px;">Status: ${booking.status}</small>
+                            <small style="color:#999; display:block; margin-bottom:5px;">Status: ${escapeHTML(booking.status)}</small>
                         `}
                         <button class="btn-table btn-delete" onclick="deleteReservation(${booking.reservation_id})">
                             🗑 Delete
@@ -127,7 +149,7 @@ async function fetchReservations() {
         
     } catch (error) {
         console.error('Data pipeline failure:', error);
-        tableBody.innerHTML = `<tr><td colspan="7" class="loading-text" style="color: red;">Failed to load reservations. Please try again.</td></tr>`;
+        tableBody.innerHTML = `<tr><td colspan="6" class="loading-text" style="color: red;">Failed to load reservations: ${error.message}</td></tr>`;
     }
 }
 
@@ -141,22 +163,22 @@ async function updateStatus(id, targetStatus) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 reservation_id: id, 
-                status: targetStatus,
-                action: 'update_status'
+                status: targetStatus
             })
         });
         
         const result = await response.json();
+        console.log('Update response:', result);
+        
         if(result.success) {
             showToast(`Reservation #${id} marked as ${targetStatus}`, 'success');
-            fetchReservations(); // Refresh table
+            setTimeout(() => fetchReservations(), 500);
         } else {
-            alert('Failed to update: ' + result.error);
-            showToast('Update failed: ' + result.error, 'error');
+            showToast('Failed to update: ' + (result.error || 'Unknown error'), 'error');
         }
     } catch(err) {
         console.error('State process fault:', err);
-        alert('Network failure occurred while updating status.');
+        showToast('Network failure occurred while updating status.', 'error');
     }
 }
 
@@ -175,24 +197,23 @@ async function deleteReservation(id) {
         });
 
         const result = await response.json();
+        console.log('Delete response:', result);
 
         if (result.success) {
             showToast(`Reservation #${id} deleted successfully`, 'success');
-            fetchReservations(); // refresh table
+            setTimeout(() => fetchReservations(), 500);
         } else {
-            alert('Delete failed: ' + result.error);
-            showToast('Delete failed: ' + result.error, 'error');
+            showToast('Delete failed: ' + (result.error || 'Unknown error'), 'error');
         }
 
     } catch (err) {
         console.error('Delete error:', err);
-        alert('Network error while deleting reservation.');
+        showToast('Network error while deleting reservation.', 'error');
     }
 }
 
 // Toast notification function
 function showToast(message, type) {
-    // Remove existing toast if any
     const existingToast = document.querySelector('.toast-notification');
     if(existingToast) existingToast.remove();
     
@@ -200,7 +221,7 @@ function showToast(message, type) {
     toast.className = `toast-notification toast-${type}`;
     toast.innerHTML = `
         <span>${type === 'success' ? '✓' : '✗'}</span>
-        <span>${message}</span>
+        <span>${escapeHTML(message)}</span>
     `;
     toast.style.cssText = `
         position: fixed;
@@ -214,6 +235,7 @@ function showToast(message, type) {
         z-index: 1000;
         animation: slideIn 0.3s ease;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        font-family: 'Open Sans', sans-serif;
     `;
     document.body.appendChild(toast);
     
@@ -244,7 +266,7 @@ if(!document.querySelector('#toast-styles')) {
 // Prevent cross site scripting string injection attacks
 function escapeHTML(str) {
     if (!str) return '';
-    return str.replace(/&/g, "&amp;")
+    return String(str).replace(/&/g, "&amp;")
               .replace(/</g, "&lt;")
               .replace(/>/g, "&gt;")
               .replace(/"/g, "&quot;")
