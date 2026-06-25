@@ -138,12 +138,35 @@ main {
 
 .contact-details {
     margin-top: 40px;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
 }
 
 .contact-details p {
-    margin: 10px 0;
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Make phone + email clickable and styled */
+.contact-details a {
+    color: #0d3f4a; /* matches your form theme */
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.contact-info .contact-details a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* Icon styling to match theme */
+.contact-details i {
+    color: #0d3f4a;
+    font-size: 18px;
 }
 
 /* RIGHT SIDE */

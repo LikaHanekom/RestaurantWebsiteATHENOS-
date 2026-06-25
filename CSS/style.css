@@ -517,12 +517,19 @@ main {
   font-size: 18px;
 }
 
-.footer-left i {
-  cursor: pointer;
-  transition: 0.3s;
+.footer-left {
+  display: flex;
+  gap: 20px;
 }
 
-.footer-left i:hover {
+.footer-left a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-left a:hover {
   opacity: 0.7;
 }
 
@@ -555,7 +562,7 @@ main {
 }
 
 /* ==========================================================================
-   8. MEDIA QUERIES (RESPONSIVE STYLES)
+    MEDIA QUERIES (RESPONSIVE STYLES)
    ========================================================================== */
 
 /* Tablets, Large Screens, iPad Views */

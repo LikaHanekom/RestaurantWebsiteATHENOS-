@@ -108,8 +108,15 @@ if (isset($_SESSION['contact_success'])) {
                 <h2>GET IN TOUCH</h2>
                 <p>We'd love to hear from you...</p>
                 <div class="contact-details">
-                    <p><i class="fas fa-phone"></i> 074 2732 934</p>
-                    <p><i class="fas fa-envelope"></i> alikahanekom@gmail.com</p>
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:0742732934">074 2732 934</a>
+                    </p>
+
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:alikahanekom@gmail.com">alikahanekom@gmail.com</a>
+                    </p>
                 </div>
             </div>
 

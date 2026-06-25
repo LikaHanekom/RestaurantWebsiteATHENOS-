@@ -5,8 +5,13 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 <footer class="footer">
         <section class="footer-left">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook-f"></i>
+            <a href="https://www.instagram.com/athenos_restaurant/?hl=en" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="hhttps://www.facebook.com/profile.php?id=100068622436265" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
         </section>
         <section class="footer-nav-links">
             <a href="ourStory.php">OUR STORY</a>

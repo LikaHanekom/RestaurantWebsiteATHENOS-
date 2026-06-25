@@ -63,7 +63,7 @@
             <button id="submitBtn" class="submit-btn">CONFIRM RESERVATION</button>
 
             <div class="footer-links">
-                <a href="#">OR EMAIL US ></a>
+                <a href="contactUs.php">OR EMAIL US ></a>
             </div>
         </section>
     </div>
