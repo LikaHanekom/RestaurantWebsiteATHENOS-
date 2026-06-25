@@ -328,6 +328,11 @@ main {
   color: white;
 }
 
+.footer-left {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
 
 .footer-left {
   display: flex;

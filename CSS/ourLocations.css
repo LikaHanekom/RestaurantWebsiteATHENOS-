@@ -476,6 +476,11 @@ a[href^="mailto:"] .clickable-link {
   color: white;
 }
 
+.footer-left {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+}
 
 .footer-left {
   display: flex;
@@ -520,7 +525,6 @@ a[href^="mailto:"] .clickable-link {
 .footer-contact a:hover {
   opacity: 0.7;
 }
-
 /* ==========================================================================
    ANIMATIONS STACK
    ========================================================================== */
